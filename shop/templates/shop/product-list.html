@@ -1,0 +1,21 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+  {{Catagory.name}}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+  {% for product in Products %}
+    <a href = "{{ product.get_absolute_url }}">
+    <div class="card" style="width:400px">
+      <img class="card-img-top" src="{{ product.image.url }}" alt="Unable to load the image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">{{ product.name }}</h4>
+        <p class="card-text">{{product.price}}</p>
+      </div>
+    </div>
+    </a>
+  {% endfor %}
+  </div>
+{% endblock %}
